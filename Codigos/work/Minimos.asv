@@ -1,0 +1,16 @@
+x=input ('Ingrese el vector x');
+x=x';
+y=input ('Ingrese el vector y');
+y=y';
+[x]
+[y]
+plot(x,y), grid on;
+p1=polyfit(x,y,1);
+b=p1(1)
+a=p1(2)
+for n= 1:1:7 
+    e(n)=((a+b*x(n)) - y(n));
+end
+
+
+

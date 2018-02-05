@@ -1,0 +1,25 @@
+load cencus
+load census
+cdate
+long(cdate)
+size(cdate)
+pop
+size(pop)
+parabolaf(21,cdate,pop)
+polyfit(cdate,pop,1)
+polyfit(cdate,pop,2)
+polyfit(cdate,pop,3)
+clc
+sdate=(cdate-mean(cdate))./
+sdate=(cdate-mean(cdate))./ std(cdate)
+polyfit(sdate,pop,1)
+polyfit(sdate,pop,2)
+polyfit(sdate,pop,3)
+primer=polyfit(sdate,pop,1)
+pop2=polyval(primer,sdate)
+plot(cdate,pop2,'-',cdate,pop,'+'), grid on
+res2=pop-pop2
+plot(cdate,res2,'r+'),grid on
+[p2,s2]=polyfit(sdate,pop,2)
+[pop2,del2]=polyval(p2,sdate,s2)
+plot(cdate,pop,'*',cdate,pop2,'b-',cdate,pop2+2*del2,'g',cdate,pop-2*del2,'r'),grid on

@@ -1,0 +1,103 @@
+        ___________________________________________        
+                       scilab-5.2.2
+
+                 Consorcio Scilab (DIGITEO)
+               Copyright (c) 1989-2010 (INRIA)
+               Copyright (c) 1989-2007 (ENPC)
+        ___________________________________________        
+ 
+ 
+Ejecucion de inicio:
+  cargando entorno inicial
+ 
+-->function [K] = fibonacci(n)
+-->//function [K] = fibonacci(n)
+-->//Gives the n-th term of the Fibonacci sequence 0,1,1,2,3,5,8,13,...
+-->if n==1
+-->  K = 0;
+-->elseif n==2
+-->  K = 1;
+-->elseif n>2 & int(n)==n  // check if n is an integer greater than 2
+-->  K = fibonacci(n-1) + fibonacci(n-2);
+-->else
+-->  disp('error! -- input is not a positive integer');
+-->end
+-->endfunction
+ 
+-->fibonacci(10)
+ ans  =
+ 
+    34.  
+ 
+-->function [r] = r(n)
+-->if n==0
+-->r=0.994;
+-->elseif n>1
+-->r=r(n-1)/2
+-->else
+-->disp('error! -- input is not a positive integer');
+-->end
+-->endfunction
+ 
+-->r(0)
+ ans  =
+ 
+    0.994  
+ 
+-->r(1)
+ 
+ error! -- input is not a positive integer   
+ ans  =
+ 
+[r]=ans(n)
+ 
+-->r(2)
+ 
+ error! -- input is not a positive integer   
+ !--error 144 
+Operación indefinida para los operandos dados.
+
+revise o defina la función %mc_r_s para sobrecargarla.
+
+at line       5 of function r called by :  
+r(2)
+ 
+ 
+-->function [r] = r(n)
+-->-->if n==0
+-->-->r=0.994;
+-->-->elseif n>1
+-->-->r=r(n-1)/2
+-->-->else
+-->-->disp('error! -- input is not a positive integer');
+-->-->end
+-->-->endfunction
+-->if n==0
+   !--error 2 
+factor invalido
+
+at line       2 of function r called by :  
+-->endfunction
+ 
+ 
+-->function [r] = r(n)
+-->if n==0
+-->r=0.994;
+-->elseif n>=1
+-->r=r(n-1)/2
+-->else
+-->disp('error! -- input is not a positive integer');
+-->end
+-->endfunction
+Advertencia : redefiniendo función: r                       . Use funcprot(0) para evitar este mensaje
+
+ 
+-->r(0)
+ ans  =
+ 
+    0.994  
+ 
+-->r(1)
+ ans  =
+ 
+    0.497 

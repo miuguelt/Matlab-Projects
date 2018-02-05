@@ -1,0 +1,114 @@
+//Calcular euler.
+
+#include "stdafx.h"
+#include <math.h>
+#include <stdio.h>
+#include <iostream>
+#include <conio.h>
+using namespace System;
+using namespace std;
+
+double procedure(double exp, int grad)
+{
+	double e1, x, j, fac1;
+
+e1=1;
+x=exp;
+  for (int a=1; a!=grad+1; a++)
+    {
+		fac1=1;
+		for (int cont=a; cont>0; cont--) 
+		{
+		fac1=fac1*cont;	//calculamos factorial
+		}	
+	exp=x;
+		for (j=1; j!=a; j++)
+		{
+		exp=exp*x;
+	    }		
+     e1=e1+(exp/fac1); 
+		
+  }
+  return e1;
+}
+double serietaylor(double poli, double punto)
+{
+//poli: grado del polinomio ; punto: punto a evaluar
+
+	double fac1, base, r;
+	int i, j, cont;
+base=1;
+	for(i=1 ; i<=poli ; i++)
+	{
+		fac1=1;
+		for (cont=i; cont>0; cont--) 
+		{
+		fac1=fac1*cont;	//calculamos factorial
+		}
+	r=punto;
+	for ( j=1; j<i*2; j++)
+	{
+	r=r*punto;
+	}
+	base=base+r/fac1;
+	}
+return base;
+}
+double integral(double poli, double punto)
+{
+//poli: grado del polinomio ; punto: punto a evaluar
+
+	double fac1, base, r;
+	int i, j, cont, expo;
+base=punto;
+expo=1;
+	for(i=1 ; i<poli ; i++)
+	{
+		fac1=1;
+		for (cont=i; cont>0; cont--) 
+		{
+		fac1=fac1*cont;	//calculamos factorial
+		}
+	r=punto;
+	expo=expo+2;
+	for ( j=1; j<expo; j++)
+	{
+	r=r*punto;
+	}
+	base=base+(r/(fac1*expo));
+	}
+return base;
+}
+void main ()
+{
+	double grado, m, sup, inf, y, gradoint, z, z1, result;
+	Console::ForegroundColor::set(System::ConsoleColor::Blue);
+	Console::ForegroundColor::set(ConsoleColor::Blue);
+		do{
+		cout<<"Introduce el grado del polinomio con el que desea comparar "<<endl; 
+		cin>>grado; 
+		} while(grado<1);
+  cout<<"Introduce el valor a evaluar en la funcion "<<endl; 
+  cin>>y;
+  m=serietaylor(grado,y);
+  cout<<"el valor calculado por series de taylor es: "<<m<<endl<<endl;
+  getch();
+cout<<"************************************************"<<endl<<endl;
+  do{
+		cout<<"Introduzca el grado del polinomio que desea evaluar en la integral "<<endl; 
+		cin>>gradoint; 
+		} while(grado<1);
+  cout<<"Introduce el limite superior de la integral "<<endl; 
+  cin>>z;
+  cout<<"Introduce el limite inferior de la integral "<<endl; 
+  cin>>z1;
+  sup=integral(gradoint,z);
+  inf=integral(gradoint,z1);
+  result=sup-inf;
+    cout<<"el valor evaluado en el limite superior es: "<<sup<<endl<<endl;
+  cout<<"el valor evaluado en el limite inferior es: "<<inf<<endl<<endl;
+  cout<<"el valor de la integral es: "<<result<<endl<<endl;
+  getch();
+
+
+}

@@ -1,0 +1,218 @@
+jecucion de inicio:
+  cargando entorno inicial
+ 
+-->p0=1;
+ 
+-->po
+  !--error 4 
+Variable indefinida: po
+        ___________________________________________        
+                       scilab-5.2.2
+
+                 Consorcio Scilab (DIGITEO)
+               Copyright (c) 1989-2010 (INRIA)
+               Copyright (c) 1989-2007 (ENPC)
+        ___________________________________________        
+ 
+ 
+Ejecucion de inicio:
+  cargando entorno inicial
+ 
+-->p0=1;
+ 
+-->po
+  !--error 4 
+Variable indefinida: po
+
+ 
+ 
+-->po=
+    !--error 2 
+factor invalido
+
+ 
+ 
+-->p0
+ p0  =
+ 
+    1.  
+ 
+-->p1=[1 1];
+ 
+-->polival(p1,1)
+              !--error 4 
+Variable indefinida: polival
+
+ 
+ 
+-->polyval(p1,1)
+              !--error 4 
+Variable indefinida: polyval
+
+ 
+ 
+-->p1=poly([1 1],"x","coeff");
+ 
+-->v1=horner(p1,1)
+ v1  =
+ 
+    2.  
+ 
+-->v1
+ v1  =
+ 
+    2.  
+ 
+-->factorial(5)
+ ans  =
+ 
+    120.  
+ 
+-->factorial(4)
+ ans  =
+ 
+    24.  
+ 
+-->p2=poly([1 1 1/factorial(2)],"x","coeff");
+ 
+-->v2=horner(p2,1)
+ v2  =
+ 
+    2.5  
+ 
+-->p3=poly([1 1 1/factorial(2) 1/factorial(3)],"x","coeff");
+ 
+-->v3=horner(p3,1)
+ v3  =
+ 
+    2.6666667  
+ 
+-->p4=poly([1 1 1/factorial(2) 1/factorial(3) 1/factorial(4)],"x","coeff");
+ 
+-->v4=horner(p4,1)
+ v4  =
+ 
+    2.7083333  
+ 
+-->p5=poly([1 1 1/factorial(2) 1/factorial(3) 1/factorial(4) 1/factorial(5)],"x","coeff");
+ 
+-->v5=horner(p5,1)
+ v5  =
+ 
+    2.7166667  
+ 
+-->p6=poly([1 1 1/factorial(2) 1/factorial(3) 1/factorial(4) 1/factorial(5) 1/factorial(6)],"x","coeff");
+ 
+-->v6=horner(p56,1)
+            !--error 4 
+Variable indefinida: p56
+
+ 
+ 
+-->v6=horner(p6,1)
+ v6  =
+ 
+    2.7180556  
+ 
+-->p7=poly([1 1 1/factorial(2) 1/factorial(3) 1/factorial(4) 1/factorial(5) 1/factorial(6) 1/factorial(7)],"x","coeff");
+ 
+-->v7=horner(p7,1)
+ v7  =
+ 
+    2.718254  
+ 
+-->p=poly([1 1 1/factorial(2) 1/factorial(3) 1/factorial(4) 1/factorial(5) 1/factorial(6) 1/factorial(7) 1/factorial(8)],"x","coeff");
+ 
+-->p8=poly([1 1 1/factorial(2) 1/factorial(3) 1/factorial(4) 1/factorial(5) 1/factorial(6) 1/factorial(7) 1/factorial(8)],"x","coeff");
+ 
+-->v8=horner(p8,1)
+ v8  =
+ 
+    2.7182788  
+ 
+-->p9=poly([1 1 1/factorial(2) 1/factorial(3) 1/factorial(4) 1/factorial(5) 1/factorial(6) 1/factorial(7) 1/factorial(8)] 1/factorial(9)],"x","coeff");
+                                                                                                          !--error 3 
+Esperando paréntesis derecho.
+
+ 
+ 
+-->p9=poly([1 1 1/factorial(2) 1/factorial(3) 1/factorial(4) 1/factorial(5) 1/factorial(6) 1/factorial(7) 1/factorial(8) 1/factorial(9)],"x","coeff");
+ 
+-->v9=horner(p9,1)
+ v9  =
+ 
+    2.7182815  
+ 
+-->p10=poly([1 1 1/factorial(2) 1/factorial(3) 1/factorial(4) 1/factorial(5) 1/factorial(6) 1/factorial(7) 1/factorial(8) 1/factorial(9) 1/factorial(10)],"x","coeff");
+ 
+-->v10=horner(p10,1)
+ v10  =
+ 
+    2.7182818  
+ 
+-->p10=poly([1 1 1/factorial(2) 1/factorial(3) 1/factorial(4) 1/factorial(5) 1/factorial(6) 1/factorial(7) 1/factorial(8) 1/factorial(9) 1/factorial(10) 1/factorial(11)],"x","coeff");
+ 
+-->v11=horner(p11,1)
+             !--error 4 
+Variable indefinida: p11
+
+ 
+ 
+-->p10=poly([1 1 1/factorial(2) 1/factorial(3) 1/factorial(4) 1/factorial(5) 1/factorial(6) 1/factorial(7) 1/factorial(8) 1/factorial(9) 1/factorial(10)],"x","coeff");
+ 
+-->p11=poly([1 1 1/factorial(2) 1/factorial(3) 1/factorial(4) 1/factorial(5) 1/factorial(6) 1/factorial(7) 1/factorial(8) 1/factorial(9) 1/factorial(10) 1/factorial(11)],"x","coeff");
+ 
+-->v11=horner(p11,1)
+ v11  =
+ 
+    2.7182818  
+ 
+-->1/factorial(11)
+ ans  =
+ 
+    2.505D-08  
+ 
+-->v11=horner(p10,1)
+ v11  =
+ 
+    2.7182818  
+ 
+-->v11=horner(p9,1)
+ v11  =
+ 
+    2.7182815  
+ 
+-->v11=horner(p11,1)
+ v11  =
+ 
+    2.7182818  
+ 
+-->v10
+ v10  =
+ 
+    2.7182818  
+ 
+-->v9
+ v9  =
+ 
+    2.7182815  
+ 
+-->v8
+ v8  =
+ 
+    2.7182788  
+ 
+-->v9
+ v9  =
+ 
+    2.7182815  
+ 
+-->v10
+ v10  =
+ 
+    2.7182818  
+ 
+-->v11=v10 + 1/factorial(11)
+ v11  =
+ 
+    2.7182818 

@@ -1,0 +1,140 @@
+               
+#include "stdafx.h"
+#include <math.h>
+#include <stdio.h>
+
+
+float funcion(float);
+float derivada_aproximacion_adelante(float,float);
+float derivada_aproximacion_atras(float ,float );
+float derivada_aproximacion_central(float,float);
+float taylor_derivada_atras(float,float);
+float taylor_derivada_adelante(float,float );
+float taylor_derivada_central(float,float);
+float taylor_derivada_adelante_3_puntos(float,float);
+float taylor_derivada_atras_3_puntos(float,float);
+float taylor_derivada_adelante_4_puntos(float,float);
+float taylor_derivada_atras_4_puntos(float,float);
+float taylor_derivada_central_4_puntos(float,float);
+float taylor_2derivada_adelante_3_puntos(float,float);
+float taylor_2derivada_atras_3_puntos(float,float);
+float taylor_2derivada_central_3_puntos(float,float);
+float taylor_2derivada_adelante_4_puntos(float,float);
+float taylor_2derivada_atras_4_puntos(float,float);
+void main(void);
+
+float funcion(float x)
+{
+	//return 5*pow(x,3)+3*pow(x,2)+x+6;
+	return pow(x,2);
+}
+
+float derivada_aproximacion_adelante(float xo,float h)
+{
+	return (funcion (xo+h)-funcion(xo))/h;
+}
+
+float derivada_aproximacion_atras(float xo,float h)
+{
+	return (funcion (xo)-funcion(xo-h))/h;
+}
+
+float derivada_aproximacion_central(float xo,float h)
+{
+	return (funcion (xo+h)-funcion(xo-h))/(2*h);
+}
+
+
+//2 puntos
+float taylor_derivada_adelante(float xo,float h)
+{
+	return (funcion (xo+h)-funcion(xo))/h;
+}
+// 2 puntos
+float taylor_derivada_atras(float xo,float h)
+{
+	return (funcion (xo-h)-funcion(xo))/h;
+}
+// 2 puntos
+float taylor_derivada_central(float xo,float h)
+{
+	return (funcion (xo+h)-funcion(xo-h))/(2*h);
+}
+//3 puntos
+float taylor_derivada_adelante_3_puntos(float xo,float h)
+{
+	return (-funcion (xo+2*h)+4*funcion(xo+h)-3*funcion(xo))/(2*h);
+}
+//3 puntos
+float taylor_derivada_atras_3_puntos(float xo,float h)
+{
+	return (funcion (xo-2*h)-4*funcion(xo-h)+3*funcion(xo))/(2*h);
+}
+
+//4 puntos
+float taylor_derivada_adelante_4_puntos(float xo,float h)
+{
+	return ((18*funcion(xo+h)+2*funcion(xo+3*h)-9*funcion(xo+2*h)-11*funcion(xo))/(6*h));//error de truncamiento 6*pow(h,2)f_triprima(xo)/factorial(3)
+}
+//4 puntos
+float taylor_derivada_atras_4_puntos(float xo,float h)
+{
+	return ((-18*funcion(xo-h)-2*funcion(xo-3*h)+9*funcion(xo-2*h)+11*funcion(xo))/(6*h));//error de truncamiento 6*pow(h,2)f_triprima(xo)/factorial(3)
+}
+//4 puntos
+float taylor_derivada_central_4_puntos(float xo,float h)
+{
+	return (9*funcion(xo+h)-funcion(xo+3*h)-8*funcion(xo))/(6*h);//error de truncamiento 3*pow(h,2)f_triprima(xo)/factorial(3)
+}
+// OBTENCION DE LA SEGUNDA DERIVADA
+
+//3 puntos
+float taylor_2derivada_adelante_3_puntos(float xo,float h)
+{
+	return (funcion (xo+2*h)-2*funcion(xo+h)+funcion(xo))/(2*pow(h,2));
+}
+
+float taylor_2derivada_atras_3_puntos(float xo,float h)
+{
+	return (-2*funcion(xo-h)+funcion(xo-2*h)+funcion(xo))/(2*pow(h,2));
+}
+
+float taylor_2derivada_central_3_puntos(float xo,float h)
+{
+	return (funcion(xo+2*h)-2*funcion(xo+h)+funcion(xo))/(2*pow(h,2));
+}
+
+// 4 puntos
+float taylor_2derivada_adelante_4_puntos(float xo,float h)
+{
+	return (-10*funcion(xo+h)-2*funcion(xo+3*h)+8*funcion(xo+2*h)+4*funcion(xo))/(4*pow(h,2));
+}
+
+float taylor_2derivada_atras_4_puntos(float xo,float h)
+{
+	return (-10*funcion(xo-h)+8*funcion(xo-2*h)-2*funcion(xo-3*h)+4*funcion(xo))/(4*pow(h,2));
+}
+
+void main()
+{
+	printf("\n1.-%f-->derivada_aproximacion_adelante",derivada_aproximacion_adelante(1,.01));
+	printf("\n2.-%f-->derivada_aproximacion_atras",derivada_aproximacion_atras(1,.01 ));
+	printf("\n3.-%f-->derivada_aproximacion_central",derivada_aproximacion_central(1,.01));
+	printf("\n4.-%f-->taylor_derivada_atras",taylor_derivada_atras(1,.01));
+	printf("\n5.-%f-->taylor_derivada_adelante",taylor_derivada_adelante(1,.01 ));
+	printf("\n6.-%f-->taylor_derivada_central",taylor_derivada_central(1,.01));
+	printf("\n7.-%f-->taylor_derivada_adelante_3_puntos",taylor_derivada_adelante_3_puntos(1,.01));
+	printf("'\n8.-%f-->taylor_derivada_atras_3_puntos",taylor_derivada_atras_3_puntos(1,.01));
+	printf("\n9.-%f-->taylor_derivada_adelante_4_puntos",taylor_derivada_adelante_4_puntos(1,.01));
+	printf("\n10.-%f-->taylor_derivada_atras_4_puntos",taylor_derivada_atras_4_puntos(1,.01));
+	printf("\n11.-%f-->taylor_derivada_central_4_puntos",taylor_derivada_central_4_puntos(1,.01));
+	printf("\n12.-%f-->taylor_2derivada_adelante_3_puntos",taylor_2derivada_adelante_3_puntos(1,.01));
+	printf("\n13.-%f-->taylor_2derivada_atras_3_puntos",taylor_2derivada_atras_3_puntos(1,.01));
+	printf("\n14.-%f-->taylor_2derivada_central_3_puntos",taylor_2derivada_central_3_puntos(1,.01));
+	printf("\n15.-%f-->taylor_2derivada_adelante_4_puntos",taylor_2derivada_adelante_4_puntos(1,.01));
+	printf("\n16.-%f-->taylor_2derivada_atras_4_puntos",taylor_2derivada_atras_4_puntos(1,.01));
+	scanf("\n");
+}
+
+
+

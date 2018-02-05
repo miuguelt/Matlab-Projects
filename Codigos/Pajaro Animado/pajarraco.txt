@@ -1,0 +1,113 @@
+clear all
+clc
+a=0:0.0001:0.01;
+plot(a,a)
+hold on
+x1=[2 4 6]
+y1=[2 2 2]
+xx1=2:0.001:6;
+yy1=spline(x1,y1,xx1);
+plot(xx1,yy1)
+grid on
+x2=[6 7 8 9 10]
+y2=[2 3 4 4.2 3.8]
+xx2=6:0.001:10;
+yy2=spline(x2,y2,xx2);
+plot(xx2,yy2,'r')
+x3=[10 10.3 10.6 10.8 11.4]
+y3=[3.8 3.7 3.6 3.5 3]
+xx3=10:0.001:11.4;
+yy3=spline(x3,y3,xx3);
+plot(xx3,yy3)
+x4=[3.25 4 5 6.25]
+y4=[3 3.5 3.75 2.25]
+xx4=3:0.001:6.25;
+yy4=spline(x4,y4,xx4);
+plot(xx4,yy4)
+x5=[2 2.5 3 3.5 4 4.5 5 5.5 6 6.5 7 7.5 8 8.5 9 9.5 10 10.8 11.4]
+y5=[2.5 1.9 1.3 .9 .63 .51 .52 .57 .7 .95 1.27 1.75 2.4 2.9 3.3 3.3 3.4 3.3 3]
+xx5=2:0.001:11.4;
+yy5=spline(x5,y5,xx5);
+plot(x5,y5,'o',xx5,yy5)
+x6=[3.25 4 5 6]
+y6=[2.6 3.1 3.25 2]
+xx6=3:0.001:6;
+yy6=spline(x6,y6,xx6);
+plot(xx6,yy6)
+x7=[4.5 4.5002 4.5003 4.5004]
+y7=[0.5 0.1 -0.5 -.8]
+xx7=4.5:0.0001:4.5004;
+yy7=spline(x7,y7,xx7);
+plot(xx7,yy7)
+x8=[5.5 5.5001 5.5002 5.5003]
+y8=[0.57 0.1 -0.5 -.65]
+xx8=5.5:0.0001:5.5003;
+yy8=spline(x8,y8,xx8);
+plot(xx8,yy8)
+x9=[4.5 4.9]
+y9=[-.8 -.7]
+xx9=4.5:0.0001:4.9;
+yy9=spline(x9,y9,xx9);
+plot(xx9,yy9)
+x10=[4.5 5]
+y10=[-.8 -.8]
+xx10=4.5:0.0001:5;
+yy10=spline(x10,y10,xx10);
+plot(xx10,yy10)
+x11=[4.5 4.9]
+y11=[-.8 -.9]
+xx11=4.5:0.0001:4.9;
+yy11=spline(x11,y11,xx11);
+plot(xx11,yy11)
+x12=[5.5 5.9]
+y12=[-.65 -.55]
+xx12=5.5:0.0001:5.9;
+yy12=spline(x12,y12,xx12);
+plot(xx12,yy12)
+x13=[5.5 6]
+y13=[-.65 -.65]
+xx13=5.5:0.0001:6;
+yy13=spline(x13,y13,xx13);
+plot(xx13,yy13)
+x14=[5.5 5.9]
+y14=[-.65 -.75]
+xx14=5.5:0.0001:5.9;
+yy14=spline(x14,y14,xx14);
+plot(xx14,yy14)
+x15=[8.77 8.8 8.83]
+y15=[3.8 3.8 3.8]
+xx15=8.77:0.0001:8.83;
+yy15=spline(x15,y15,xx15);
+plot(xx15,yy15,'o')
+
+
+
+
+
+
+
+
+
+Lo que se hace con Matlab para reproducir un sonido es lo siguiente:
+
+1 -> Leer el archivo de sonido.
+2 -> Reproducir el sonido con los datos del archivo de audio.
+
+Cuando se utiliza el grabador de sonido de Windows (el que se encuentra en accesorios), las grabaciones generadas se almacenan en archivos con formato .wav (WAVeform audio format).
+
+
+Para leerlos desde Matlab se utiliza el comando "wavread" con las siguientes salidas:
+
+>> [y, Fs] = wavread(filename)
+
+en donde 'y' corresponde a un vector cuyos elementos son los datos tomados en la grabación (muestreo), 'Fs' es la tasa de muestreo en Hz utilizada para la gabración y 'filename' corresponde la nombre del archivo de la grabación.
+
+
+Luego de cargada la información del archivo, se utiliza el comando "sound" para enviar el sonido a los parlantes del PC de la siguiente manera.
+
+>> sound(y,Fs)
+
+... y así se reproduce un sonido de formato *.wav con Matlab.
+
+
+Recuerda que para cargar correctamente los datos de la grabación, el archivo *.wav debe encontrarse en la carpeta de trabajo actual de Matlab, o en su defecto debes escribir la dirección completa (ruta) donde se encuentra el archivo que deseas 

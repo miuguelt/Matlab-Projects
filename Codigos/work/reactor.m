@@ -1,0 +1,50 @@
+clear all;
+R=1.987;
+Q=1000;
+V=10;
+Ca0=0.3;
+Cb0=0;
+Cc0=0;
+T0=283.15;
+Cpa=200;
+Cpb=200;
+Cpc=200;
+K10=3.03;
+K20=4.58;
+T10=300;
+T20=500;
+Ea1=9900;
+Ea2=27000;
+dHrx1=-55000;
+dHrx2=-71500;
+UA=40000;
+Ta=273.15+57;
+Ea1R=Ea1/R;
+Ea2R=Ea2/R;
+tau=V/Q;
+T=linspace(250,750,200);
+npT=length(T);
+for i=1:npT   
+k1(i)=K10*exp(Ea1R*(1/T10-1/T(i)));
+k2(i)=K20*exp(Ea2R*(1/T20-1/T(i)));
+Ca(i)=Ca0/(1+tau*k1(i));
+Cb(i)=Cb0+tau*k1(i)/(1+k2(i)*tau);
+Cc(i)=Cc0+tau*k2(i)*Cb(i);
+ra1(i)=k1(i)*Ca(i);
+ra1(i)=-k1(i)*Ca(i);
+rb2(i)=-k2(i)*Cb(i);
+Qremocion(i)=Q*Ca0*Cpa*(T0-T(i))+UA*(Ta-T(i));
+Qgeneracion(i)=V*(-dHrx1)*(-ra1(i))+V*(-dHrx2)*(-rb2(i));
+funcion(i)=Qgeneracion(i)+Qremocion(i);
+end
+figure(1)
+plot(T,Qremocion,T,Qgeneracion)
+legend('Qremocion','Qgeneracion')
+xlabel('Temperatura[K]'),ylabel('calor[BTU/h]')
+grid
+title('calor vs Temperatura')
+figure(2)
+plot(T,funcion)
+xlabel('temperatura[k]'),ylabel('calor[BTU/h]')
+grid
+tilte('Qgeneracion-Qremocion vs temperatura')

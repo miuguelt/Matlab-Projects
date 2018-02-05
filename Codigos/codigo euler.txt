@@ -1,0 +1,80 @@
+              
+#include "stdafx.h"
+#include <math.h>
+#include <stdio.h>
+#include <iostream>
+#include <conio.h>
+using namespace System;
+using namespace std;
+
+void main ()
+{
+	double lim, lim1;
+	float x, i, xx, j, fac1, con11, e1;
+lim=0;
+       lim1=0;
+  while (lim1<1) {
+  cout<<"Introduce el grado del polinomio con el que desea comparar "<<endl; 
+		cin>>lim1;
+  }//while
+  cout<<"Introduce el valor de 'e' donde se va a evaluar la funcion: "; cin>>x;
+  e1=1;
+  xx=x;
+  for (int aa1=1; aa1!=lim1+1; aa1++)
+    {
+    //calculamos factorial
+    fac1=1;
+    for (con11=aa1; con11>0; con11--)      fac1=fac1*con11;
+    //calculamos x
+     x=xx;
+     for (j=1; j!=aa1; j++)
+       {
+         x=x*xx;
+       }
+    //calculamos e
+     e1=e1+(x/fac1);
+    }
+  cout<<"e: "<<e1<<endl<<endl;
+  getch();
+
+
+}
+
+
+1,46177248711
+0.5449867208
+
+
+pagina:  http://www.recursosdelweb.com/calcular-el-factorial-de-un-numero-calcular-el-numero-e-numero-de-euler-y-la-funcion-exponencial-en-c-cpp/
+
+
+_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_
+
+void main ()
+{
+	double lim, lim1, e1, x, xx, j, fac1, con11;
+lim=0;
+cout<<"Introduce el grado del polinomio con el que desea comparar "<<endl; 
+cin>>lim1;
+				while (lim1<1) { cout<<"No es posible asignarle un valor menor a cero para el grado de un polinomio"<<endl;
+				cin>>lim1;
+				}//while
+  cout<<"Introduce el valor de x a evaluar en la funcion e^x "; cin>>x;
+  e1=1.0;
+  xx=x;
+  for (int a=1; a!=lim1+1; a++)
+    {
+    //calculamos factorial
+    fac1=1;
+		for (con11=a; con11>0; con11--)      
+			fac1=fac1*con11;		//calculamos x
+			x=xx;
+				for (j=1; j!=a; j++)
+				   {
+					 x=x*xx;
+				   }
+     e1=e1+(x/fac1); //calculamos e
+  }
+cout<<"e: "<<e1<<endl<<endl;
+  getch();
+}
